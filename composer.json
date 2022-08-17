@@ -1,5 +1,5 @@
 {
-    "name": "clarkwinkelmann/flarum-ext-bookmarks",
+    "name": "clarkwinkelmann/flarum-ext-discussion-bookmarks",
     "description": "Bookmark discussions to find them easily later",
     "keywords": [
         "flarum"
@@ -7,8 +7,11 @@
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
-        "flarum/core": "^1.0",
+        "flarum/core": "^1.3.1",
         "ext-json": "*"
+    },
+    "replace": {
+        "clarkwinkelmann/flarum-ext-bookmarks": "*"
     },
     "authors": [
         {
@@ -19,12 +22,12 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-bookmarks",
+        "source": "https://github.com/clarkwinkelmann/flarum-ext-discussion-bookmarks",
         "forum": "https://discuss.flarum.org/d/25357"
     },
     "autoload": {
         "psr-4": {
-            "ClarkWinkelmann\\Bookmarks\\": "src/"
+            "ClarkWinkelmann\\DiscussionBookmarks\\": "src/"
         }
     },
     "extra": {

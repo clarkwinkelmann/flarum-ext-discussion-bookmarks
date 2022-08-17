@@ -1,6 +1,6 @@
 <?php
 
-namespace ClarkWinkelmann\Bookmarks\Gambits;
+namespace ClarkWinkelmann\DiscussionBookmarks\Gambits;
 
 use Flarum\Search\AbstractRegexGambit;
 use Flarum\Search\SearchState;

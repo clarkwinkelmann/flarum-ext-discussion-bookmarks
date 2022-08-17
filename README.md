@@ -1,6 +1,6 @@
 # Discussion Bookmarks
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/clarkwinkelmann/flarum-ext-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks) [![Total Downloads](https://img.shields.io/packagist/dt/clarkwinkelmann/flarum-ext-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/clarkwinkelmann/flarum-ext-discussion-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-discussion-bookmarks) [![Total Downloads](https://img.shields.io/packagist/dt/clarkwinkelmann/flarum-ext-discussion-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-discussion-bookmarks) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
 
 This extension lets user bookmark discussions.
 
@@ -12,7 +12,20 @@ A single setting lets you customize whether you want the control to be accessibl
 
 ## Installation
 
-    composer require clarkwinkelmann/flarum-ext-bookmarks
+    composer require clarkwinkelmann/flarum-ext-discussion-bookmarks
+
+## Upgrade from v1
+
+Version 1.x of the extension used the package name `clarkwinkelmann/flarum-ext-bookmarks`.
+
+Simply run the `require` command from above to install the new extension.
+The old extension will automatically be disabled.
+
+The extension settings will not be preserved, so make sure to reconfigure them after upgrading (there's just one setting in the v1 version).
+
+The default URL for bookmarks changed and no redirect is provided.
+
+Your custom CSS might require adjusting to CSS class name changes.
 
 ## Support
 
@@ -29,6 +42,6 @@ Support is offered on a "best effort" basis through the Flarum community thread.
 
 ## Links
 
-- [GitHub](https://github.com/clarkwinkelmann/flarum-ext-bookmarks)
-- [Packagist](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks)
+- [GitHub](https://github.com/clarkwinkelmann/flarum-ext-discussion-bookmarks)
+- [Packagist](https://packagist.org/packages/clarkwinkelmann/flarum-ext-discussion-bookmarks)
 - [Discuss](https://discuss.flarum.org/d/25357)

@@ -7,9 +7,9 @@ export default function () {
     extend(Discussion.prototype, 'badges', function (badges) {
         if (this.attribute('bookmarked')) {
             badges.add('bookmarked', Badge.component({
-                label: app.translator.trans('clarkwinkelmann-bookmarks.forum.badge'),
+                label: app.translator.trans('clarkwinkelmann-discussion-bookmarks.forum.badge'),
                 icon: 'fas fa-bookmark',
-                type: 'bookmark',
+                type: 'discussion-bookmark',
             }));
         }
     });

@@ -1,8 +1,7 @@
 <?php
 
-namespace ClarkWinkelmann\Bookmarks;
+namespace ClarkWinkelmann\DiscussionBookmarks;
 
-use ClarkWinkelmann\Bookmarks\Listeners\SaveDiscussion;
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Discussion\Event\Saving;
@@ -13,7 +12,7 @@ return [
     (new Extend\Frontend('forum'))
         ->js(__DIR__ . '/js/dist/forum.js')
         ->css(__DIR__ . '/resources/less/forum.less')
-        ->route('/bookmarks', 'bookmark', Content\Bookmarks::class),
+        ->route('/bookmarked-discussions', 'discussion-bookmarks', Content\Bookmarks::class),
 
     (new Extend\Frontend('admin'))
         ->js(__DIR__ . '/js/dist/admin.js'),
@@ -21,7 +20,7 @@ return [
     new Extend\Locales(__DIR__ . '/resources/locale'),
 
     (new Extend\Event())
-        ->listen(Saving::class, SaveDiscussion::class),
+        ->listen(Saving::class, Listeners\SaveDiscussion::class),
 
     (new Extend\ApiSerializer(DiscussionSerializer::class))
         ->attribute('bookmarked', function (DiscussionSerializer $serializer, Discussion $discussion): bool {
@@ -29,9 +28,8 @@ return [
         }),
 
     (new Extend\Settings())
-        ->serializeToForum('independentBookmarkButton', 'bookmarks.independentButton', function ($value): bool {
-            return $value !== '0';
-        }),
+        ->default('discussion-bookmarks.independentButton', '1')
+        ->serializeToForum('independentDiscussionBookmarkButton', 'discussion-bookmarks.independentButton', 'boolval'),
 
     (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))
         ->addGambit(Gambits\BookmarkedGambit::class),

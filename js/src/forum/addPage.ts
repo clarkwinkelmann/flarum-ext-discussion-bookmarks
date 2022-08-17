@@ -5,11 +5,9 @@ import DiscussionListState from 'flarum/forum/states/DiscussionListState';
 import IndexPage from 'flarum/forum/components/IndexPage';
 import LinkButton from 'flarum/common/components/LinkButton';
 
-/* global m */
-
 export default function () {
-    app.routes.bookmarks = {
-        path: '/bookmarks',
+    app.routes.discussionBookmarks = {
+        path: '/bookmarked-discussions',
         component: IndexPage,
     };
 
@@ -18,22 +16,22 @@ export default function () {
             return;
         }
 
-        items.add('bookmarks', LinkButton.component({
-            href: app.route('bookmarks', app.search.stickyParams()),
+        items.add('discussion-bookmarks', LinkButton.component({
+            href: app.route('discussionBookmarks', app.search.stickyParams()),
             icon: 'fas fa-bookmark',
-        }, app.translator.trans('clarkwinkelmann-bookmarks.forum.page.link')));
+        }, app.translator.trans('clarkwinkelmann-discussion-bookmarks.forum.page.link')));
     });
 
     extend(IndexPage.prototype, 'setTitle', function () {
-        if (app.current.get('routeName') === 'bookmarks') {
-            app.setTitle(app.translator.trans('clarkwinkelmann-bookmarks.forum.page.title'));
+        if (app.current.get('routeName') === 'discussionBookmarks') {
+            app.setTitle(app.translator.trans('clarkwinkelmann-discussion-bookmarks.forum.page.title'));
         }
     });
 
     // This code differs from the Subscription extension because it fixes https://github.com/flarum/core/issues/2516
     extend(GlobalSearchState.prototype, 'params', function (params) {
-        params.bookmarked = app.current.get('routeName') === 'bookmarks';
-    })
+        params.bookmarked = app.current.get('routeName') === 'discussionBookmarks';
+    });
 
     extend(DiscussionListState.prototype, 'requestParams', function (params) {
         if (this.params.bookmarked) {

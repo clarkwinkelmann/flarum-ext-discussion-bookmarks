@@ -1,6 +1,6 @@
 <?php
 
-namespace ClarkWinkelmann\Bookmarks\Content;
+namespace ClarkWinkelmann\DiscussionBookmarks\Content;
 
 use Flarum\Api\Client;
 use Flarum\Frontend\Document;
@@ -30,7 +30,7 @@ class Bookmarks
         $q = Arr::pull($queryParams, 'q', '');
         $page = Arr::pull($queryParams, 'page', 1);
 
-        $sortMap = $this->getSortMap();
+        $sortMap = resolve('flarum.forum.discussions.sortmap');
 
         $params = [
             'sort' => $sort && isset($sortMap[$sort]) ? $sortMap[$sort] : '',
@@ -42,19 +42,9 @@ class Bookmarks
 
         $apiDocument = $this->getApiDocument($request, $params);
 
-        $document->title = $this->translator->trans('clarkwinkelmann-bookmarks.forum.page.title');
+        $document->title = $this->translator->trans('clarkwinkelmann-discussion-bookmarks.forum.page.title');
         $document->content = $this->view->make('flarum.forum::frontend.content.index', compact('apiDocument', 'page'));
         $document->payload['apiDocument'] = $apiDocument;
-    }
-
-    private function getSortMap(): array
-    {
-        return [
-            'latest' => '-lastPostedAt',
-            'top' => '-commentCount',
-            'newest' => '-createdAt',
-            'oldest' => 'createdAt'
-        ];
     }
 
     private function getApiDocument(ServerRequestInterface $request, array $params)

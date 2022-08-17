@@ -1,6 +1,6 @@
 <?php
 
-namespace ClarkWinkelmann\Bookmarks\Listeners;
+namespace ClarkWinkelmann\DiscussionBookmarks\Listeners;
 
 use Carbon\Carbon;
 use Flarum\Discussion\Event\Saving;

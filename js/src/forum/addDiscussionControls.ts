@@ -3,10 +3,9 @@ import app from 'flarum/forum/app';
 import Button from 'flarum/common/components/Button';
 import DiscussionPage from 'flarum/forum/components/DiscussionPage';
 import DiscussionControls from 'flarum/forum/utils/DiscussionControls';
+import Discussion from 'flarum/common/models/Discussion';
 
-/* global m */
-
-function bookmarkButton(discussion, translation, className = '') {
+function bookmarkButton(discussion: Discussion, translation: string, className: string = '') {
     const bookmarked = discussion.attribute('bookmarked');
 
     return Button.component({
@@ -19,12 +18,12 @@ function bookmarkButton(discussion, translation, className = '') {
                 m.redraw();
             });
         },
-    }, app.translator.trans('clarkwinkelmann-bookmarks.forum.' + translation + '.' + (bookmarked ? 'remove' : 'add')));
+    }, app.translator.trans('clarkwinkelmann-discussion-bookmarks.forum.' + translation + '.' + (bookmarked ? 'remove' : 'add')));
 }
 
 export default function () {
     extend(DiscussionControls, 'userControls', (items, discussion, context) => {
-        if (!app.session.user || (app.forum.attribute('independentBookmarkButton') && context instanceof DiscussionPage)) {
+        if (!app.session.user || (app.forum.attribute('independentDiscussionBookmarkButton') && context instanceof DiscussionPage)) {
             return;
         }
 
@@ -32,7 +31,7 @@ export default function () {
     });
 
     extend(DiscussionPage.prototype, 'sidebarItems', function (items) {
-        if (!app.session.user || !app.forum.attribute('independentBookmarkButton')) {
+        if (!app.session.user || !app.forum.attribute('independentDiscussionBookmarkButton') || !this.discussion) {
             return;
         }
 

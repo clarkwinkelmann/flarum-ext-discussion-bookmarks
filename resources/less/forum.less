@@ -1,12 +1,14 @@
-@bookmark-background: #2756c6;
-
-.Badge--bookmark {
-    background: @bookmark-background;
+:root {
+    --discussion-bookmark-color: #2756c6;
 }
 
-.Button--bookmark.Button--bookmarked {
-    background: @bookmark-background;
-    color: @body-bg;
+.Badge--discussion-bookmark {
+    background: var(--discussion-bookmark-color);
+}
+
+.DiscussionPage-nav .Button--bookmark.Button--bookmarked {
+    background: var(--discussion-bookmark-color);
+    color: var(--body-bg);
 }
 
 .FlarumBlog-Article-Content-Bookmark-Button {
