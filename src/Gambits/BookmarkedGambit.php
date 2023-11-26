@@ -18,7 +18,7 @@ class BookmarkedGambit extends AbstractRegexGambit
         $actor = $search->getActor();
 
         $method = $negate ? 'whereNotIn' : 'whereIn';
-        $search->getQuery()->$method('id', function (Builder $query) use ($actor) {
+        $search->getQuery()->$method('discussions.id', function (Builder $query) use ($actor) {
             $query->select('discussion_id')
                 ->from('discussion_user')
                 ->where('user_id', $actor->id)
