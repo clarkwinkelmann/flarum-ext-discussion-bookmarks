@@ -38,7 +38,7 @@ You can [contact me](https://clarkwinkelmann.com/flarum) to sponsor additional f
 
 Support is offered on a "best effort" basis through the Flarum community thread.
 
-**Sponsors**: [Phenomlab](https://phenomlab.net/), [ctml](https://discuss.flarum.org/u/ctml), [Glowing Blue](https://glowingblue.com/)
+**Sponsors**: Phenomlab, [ctml](https://discuss.flarum.org/u/ctml), [Glowing Blue](https://glowingblue.com/)
 
 ## Links
 
